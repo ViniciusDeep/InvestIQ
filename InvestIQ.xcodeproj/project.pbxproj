@@ -14,6 +14,8 @@
 		7944792E2BC0B8D700D39B12 /* InvestIQTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7944792D2BC0B8D700D39B12 /* InvestIQTests.swift */; };
 		794479382BC0B8D700D39B12 /* InvestIQUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794479372BC0B8D700D39B12 /* InvestIQUITests.swift */; };
 		7944793A2BC0B8D700D39B12 /* InvestIQUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794479392BC0B8D700D39B12 /* InvestIQUITestsLaunchTests.swift */; };
+		794479472BC0B8F800D39B12 /* StockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794479462BC0B8F800D39B12 /* StockViewModel.swift */; };
+		794479492BC0BD6F00D39B12 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794479482BC0BD6F00D39B12 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		794479332BC0B8D700D39B12 /* InvestIQUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InvestIQUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		794479372BC0B8D700D39B12 /* InvestIQUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestIQUITests.swift; sourceTree = "<group>"; };
 		794479392BC0B8D700D39B12 /* InvestIQUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestIQUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		794479462BC0B8F800D39B12 /* StockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockViewModel.swift; sourceTree = "<group>"; };
+		794479482BC0BD6F00D39B12 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +98,7 @@
 		7944791B2BC0B8D600D39B12 /* InvestIQ */ = {
 			isa = PBXGroup;
 			children = (
-				7944791C2BC0B8D600D39B12 /* InvestIQApp.swift */,
-				7944791E2BC0B8D600D39B12 /* ContentView.swift */,
+				7944794A2BC0D01B00D39B12 /* App */,
 				794479202BC0B8D700D39B12 /* Assets.xcassets */,
 				794479222BC0B8D700D39B12 /* Preview Content */,
 			);
@@ -125,6 +128,49 @@
 				794479392BC0B8D700D39B12 /* InvestIQUITestsLaunchTests.swift */,
 			);
 			path = InvestIQUITests;
+			sourceTree = "<group>";
+		};
+		7944794A2BC0D01B00D39B12 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				7944794E2BC0D03800D39B12 /* ViewModel */,
+				7944794D2BC0D03300D39B12 /* Model */,
+				7944794C2BC0D02A00D39B12 /* View */,
+				7944794B2BC0D02100D39B12 /* Bootstrap */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		7944794B2BC0D02100D39B12 /* Bootstrap */ = {
+			isa = PBXGroup;
+			children = (
+				7944791C2BC0B8D600D39B12 /* InvestIQApp.swift */,
+			);
+			path = Bootstrap;
+			sourceTree = "<group>";
+		};
+		7944794C2BC0D02A00D39B12 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7944791E2BC0B8D600D39B12 /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7944794D2BC0D03300D39B12 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				794479482BC0BD6F00D39B12 /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7944794E2BC0D03800D39B12 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				794479462BC0B8F800D39B12 /* StockViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +303,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				794479472BC0B8F800D39B12 /* StockViewModel.swift in Sources */,
 				7944791F2BC0B8D600D39B12 /* ContentView.swift in Sources */,
 				7944791D2BC0B8D600D39B12 /* InvestIQApp.swift in Sources */,
+				794479492BC0BD6F00D39B12 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

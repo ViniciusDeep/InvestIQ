@@ -1,36 +1,38 @@
-//
-//  InvestIQTests.swift
-//  InvestIQTests
-//
-//  Created by Vinicius Mangueira on 05/04/24.
-//
-
-import XCTest
 @testable import InvestIQ
+import XCTest
 
-final class InvestIQTests: XCTestCase {
+class InvestIQTests: XCTestCase {
+    var viewModel: StockViewModel!
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        viewModel = StockViewModel()
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        viewModel = nil
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testFetchStocks_givenSymbol_fetchesStocks() {
+        let expectation = XCTestExpectation(description: "Fetch stocks expectation")
+        let symbol = "AAPL"
+        viewModel.fetchStocks(for: symbol)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            XCTAssertNotNil(self.viewModel.response, "Response should not be nil after fetching stocks")
+            expectation.fulfill()
         }
+        wait(for: [expectation], timeout: 10)
     }
 
+    func testGetPriceData_givenTimeSeries_returnsDataPoints() {
+        let timeSeries = ["2022-01-01": TimeSeries(open: "100.00", high: "110.00", low: "90.00", close: "105.00", volume: "100000")]
+        let dataPoints = ContentView().getPriceData(timeSeries: timeSeries)
+        XCTAssertEqual(dataPoints, [100.00], "Data points should match expected values")
+    }
+
+    func testFormatPrice_givenPriceAndTimeSeries_formatsPriceCorrectly() {
+        let price = 100.00
+        let timeSeries = ["2022-01-01": TimeSeries(open: "100.00", high: "110.00", low: "90.00", close: "105.00", volume: "100000")]
+        let formattedPrice = PriceSummaryView(timeSeries: timeSeries).formatPrice(price)
+        XCTAssertEqual(formattedPrice, "$ 100.00")
+    }
 }

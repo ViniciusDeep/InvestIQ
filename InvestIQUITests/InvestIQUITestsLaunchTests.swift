@@ -1,10 +1,3 @@
-//
-//  InvestIQUITestsLaunchTests.swift
-//  InvestIQUITests
-//
-//  Created by Vinicius Mangueira on 05/04/24.
-//
-
 import XCTest
 
 final class InvestIQUITestsLaunchTests: XCTestCase {
